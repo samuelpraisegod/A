@@ -40,12 +40,12 @@
             z-index: 100;
         }
 
-.header-title h1 {
+ .header-title h1 {
             margin: 0;
             font-size: 1.5rem;
         }
 
- nav ul {
+  nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
@@ -53,18 +53,18 @@
             gap: 1rem;
         }
 
-  nav ul li a {
+nav ul li a {
             color: var(--white);
             text-decoration: none;
         }
 
-  /* Home Content */
+ /* Home Content */
         #home-content {
             text-align: center;
             padding: 2rem;
         }
 
-  .hero {
+.hero {
             max-width: 600px;
             margin: 0 auto;
         }
@@ -72,7 +72,9 @@
 .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-      /* Dashboard Layout */
+        }
+
+ /* Dashboard Layout */
         .dashboard {
             display: grid;
             grid-template-columns: 1fr 250px;
@@ -85,7 +87,7 @@
             padding: 2rem;
         }
 
-   .sidebar {
+ .sidebar {
             grid-area: sidebar;
             background: var(--white);
             padding: 1rem;
@@ -95,7 +97,7 @@
             border-left: 1px solid #eee;
         }
 
-  .sidebar .brand {
+.sidebar .brand {
             font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 1rem;
@@ -107,7 +109,7 @@
             padding: 0;
         }
 
-  .sidebar ul li a {
+ .sidebar ul li a {
             display: flex;
             align-items: center;
             padding: 0.5rem;
@@ -115,25 +117,25 @@
             text-decoration: none;
         }
 
-  .sidebar ul li a:hover {
+ .sidebar ul li a:hover {
             background: var(--light-bg);
             border-radius: 5px;
         }
 
-  .sidebar hr {
+.sidebar hr {
             margin: 0.5rem 0;
             border: 0;
             border-top: 1px solid #eee;
         }
 
-   /* Tabs and Forms */
+  /* Tabs and Forms */
         .tabs {
             display: flex;
             gap: 0.5rem;
             margin-bottom: 1rem;
         }
 
-  .tab-btn {
+ .tab-btn {
             padding: 0.5rem 1rem;
             border: none;
             background: none;
@@ -141,20 +143,20 @@
             border-bottom: 2px solid transparent;
         }
 
-   .tab-btn.active {
+.tab-btn.active {
             border-bottom-color: var(--secondary);
             font-weight: bold;
         }
 
-  .tab-content {
+ .tab-content {
             display: none;
         }
 
-  .tab-content.active {
+ .tab-content.active {
             display: block;
         }
 
-   .form-group {
+ .form-group {
             margin-bottom: 1rem;
         }
 
@@ -182,11 +184,14 @@
             padding: 0.5rem;
             text-align: left;
             border-bottom: 1px solid #ccc;
-           th {
+        }
+
+   th {
             background: var(--primary);
             color: var(--white);
         }
-   /* Status Indicators */
+
+  /* Status Indicators */
         .status {
             padding: 0.25rem 0.5rem;
             border-radius: 5px;
@@ -206,20 +211,21 @@
             text-decoration: none;
         }
 
- .btn-primary {
+  .btn-primary {
             background: var(--secondary);
             color: var(--primary);
         }
 
-   .btn-success {
+ .btn-success {
             background: #28a745;
             color: var(--white);
         }
 
-  .btn:hover {
+ .btn:hover {
             opacity: 0.9;
         }
-    /* Footer */
+
+  /* Footer */
         footer {
             text-align: center;
             padding: 1rem;
@@ -262,7 +268,6 @@
             </ul>
         </nav>
     </header>
-
  <div id="home-content">
         <div class="hero">
             <h1>MarketFlow: Collaborative Trading</h1>
@@ -271,7 +276,7 @@
         </div>
     </div>
 
- <div id="dashboard-content" class="hidden">
+  <div id="dashboard-content" class="hidden">
         <div class="dashboard">
             <main class="main-content">
                 <section id="balance">
@@ -511,7 +516,6 @@
             </nav>
         </div>
     </div>
-
  <footer>
         <p>&copy; 2025 MarketFlow</p>
     </footer>
