@@ -16,7 +16,7 @@
             --shadow: rgba(0,0,0,0.1);
         }
 
-        /* Global Styles */
+/* Global Styles */
         body {
             font-family: 'Segoe UI', sans-serif;
             background: var(--light-bg);
@@ -26,7 +26,7 @@
             line-height: 1.6;
         }
 
-        /* Header Styles */
+/* Header Styles */
         header {
             background: #4a2626;
             color: var(--white);
@@ -40,12 +40,12 @@
             z-index: 100;
         }
 
-        .header-title h1 {
+ .header-title h1 {
             margin: 0;
             font-size: 1.5rem;
         }
 
-        nav ul {
+nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
@@ -53,35 +53,35 @@
             gap: 1rem;
         }
 
-        nav ul li a {
+nav ul li a {
             color: var(--white);
             text-decoration: none;
         }
 
-        /* Home Content */
+ /* Home Content */
         #home-content {
             text-align: center;
             padding: 2rem;
         }
 
-        .hero {
+.hero {
             max-width: 600px;
             margin: 0 auto;
         }
 
-        .hero h1 {
+ .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
 
-        /* Dashboard Layout */
+/* Dashboard Layout */
         .dashboard {
             display: grid;
             grid-template-columns: 250px 1fr;
             min-height: calc(100vh - 60px);
         }
 
-        .sidebar {
+.sidebar {
             background: var(--white);
             padding: 1rem;
             position: sticky;
@@ -90,35 +90,49 @@
             border-right: 1px solid #eee;
         }
 
-        .sidebar ul {
+ .sidebar .brand {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+.sidebar ul {
             list-style: none;
             padding: 0;
         }
 
-        .sidebar ul li a {
-            display: block;
+ .sidebar ul li a {
+            display: flex;
+            align-items: center;
             padding: 0.5rem;
             color: var(--text);
             text-decoration: none;
         }
 
-        .sidebar ul li a:hover {
+ .sidebar ul li a:hover {
             background: var(--light-bg);
             border-radius: 5px;
         }
 
-        .main-content {
+ .sidebar hr {
+            margin: 0.5rem 0;
+            border: 0;
+            border-top: 1px solid #eee;
+        }
+
+ .main-content {
             padding: 2rem;
         }
 
-        /* Tabs and Forms */
+/* Tabs and Forms */
         .tabs {
             display: flex;
             gap: 0.5rem;
             margin-bottom: 1rem;
         }
 
-        .tab-btn {
+.tab-btn {
             padding: 0.5rem 1rem;
             border: none;
             background: none;
@@ -126,36 +140,36 @@
             border-bottom: 2px solid transparent;
         }
 
-        .tab-btn.active {
+.tab-btn.active {
             border-bottom-color: var(--secondary);
             font-weight: bold;
         }
 
-        .tab-content {
+ .tab-content {
             display: none;
         }
 
-        .tab-content.active {
+ .tab-content.active {
             display: block;
         }
 
-        .form-group {
+   .form-group {
             margin-bottom: 1rem;
         }
 
-        .form-group label {
+   .form-group label {
             display: block;
             margin-bottom: 0.25rem;
         }
 
-        .form-group select {
+  .form-group select {
             width: 100%;
             padding: 0.5rem;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
 
-        /* Tables */
+  /* Tables */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -163,18 +177,17 @@
             box-shadow: 0 2px 5px var(--shadow);
         }
 
-        th, td {
+  th, td {
             padding: 0.5rem;
             text-align: left;
             border-bottom: 1px solid #ccc;
         }
-
-        th {
+   th {
             background: var(--primary);
             color: var(--white);
         }
 
-        /* Status Indicators */
+   /* Status Indicators */
         .status {
             padding: 0.25rem 0.5rem;
             border-radius: 5px;
@@ -182,10 +195,10 @@
             font-size: 0.875rem;
         }
 
-        .status-pending { background: #ffc107; }
+ .status-pending { background: #ffc107; }
         .status-active { background: #28a745; }
 
-        /* Buttons */
+ /* Buttons */
         .btn {
             padding: 0.5rem 1rem;
             border: none;
@@ -194,21 +207,21 @@
             text-decoration: none;
         }
 
-        .btn-primary {
+  .btn-primary {
             background: var(--secondary);
             color: var(--primary);
         }
 
-        .btn-success {
+  .btn-success {
             background: #28a745;
             color: var(--white);
         }
 
-        .btn:hover {
+ .btn:hover {
             opacity: 0.9;
         }
 
-        /* Footer */
+  /* Footer */
         footer {
             text-align: center;
             padding: 1rem;
@@ -219,12 +232,12 @@
             width: 100%;
         }
 
-        /* Utility Classes */
+  /* Utility Classes */
         .hidden {
             display: none;
         }
 
-        /* Responsive Design */
+ /* Responsive Design */
         @media (max-width: 768px) {
             .dashboard {
                 grid-template-columns: 1fr;
@@ -250,8 +263,7 @@
             </ul>
         </nav>
     </header>
-
-  <div id="home-content">
+ <div id="home-content">
         <div class="hero">
             <h1>MarketFlow: Collaborative Trading</h1>
             <p>Join a community-driven platform to co-fund trading accounts and maximize profits.</p>
@@ -262,24 +274,34 @@
   <div id="dashboard-content" class="hidden">
         <div class="dashboard">
             <nav class="sidebar">
+                <div class="brand">MarketFlow</div>
                 <ul>
-                    <li><a href="#future-balance">future.Balance</a></li>
-                    <li><a href="#deposit">Deposit</a></li>
-                    <li><a href="#available-funded">Available Funded</a></li>
-                    <li><a href="#available-traders">Available Traders</a></li>
-                    <li><a href="#co-funding">Co-Funding</a></li>
-                    <li><a href="#requests">Requests</a></li>
-                    <li><a href="#active">Active</a></li>
-                    <li><a href="#order">Order</a></li>
-                    <li><a href="#completed">Completed</a></li>
-                    <li><a href="#profits-withdrawals">Profits & Withdrawals</a></li>
-                    <li><a href="#performance-chart">Performance Chart</a></li>
-                    <li><a href="#message">Message</a></li>
+                    <li><a href="#balance"><span role="img" aria-label="bank">🏦</span> Balance</a></li>
+                    <li><a href="#deposit"><span role="img" aria-label="plus">➕</span> Deposit</a></li>
+                    <li><a href="#available-funded"><span role="img" aria-label="briefcase">💼</span> Available Funded</a></li>
+                    <li><a href="#available-traders"><span role="img" aria-label="people">👥</span> Available Traders</a></li>
+                    <li><a href="#co-funding"><span role="img" aria-label="handshake">🤝</span> Co-Funding</a></li>
+                    <li><a href="#requests"><span role="img" aria-label="envelope">📩</span> Requests</a></li>
+                </ul>
+                <hr>
+                <ul>
+                    <li><a href="#active"><span role="img" aria-label="chart">📊</span> Active</a></li>
+                    <li><a href="#orders"><span role="img" aria-label="document">📑</span> Orders</a></li>
+                    <li><a href="#completed"><span role="img" aria-label="check">✅</span> Completed</a></li>
+                </ul>
+                <hr>
+                <ul>
+                    <li><a href="#profits-withdrawals"><span role="img" aria-label="money">💵</span> Profits & Withdrawals</a></li>
+                    <li><a href="#performance-chart"><span role="img" aria-label="graph">📈</span> Performance Chart</a></li>
+                </ul>
+                <hr>
+                <ul>
+                    <li><a href="#messages"><span role="img" aria-label="speech">💬</span> Messages</a></li>
                 </ul>
             </nav>
             <main class="main-content">
-                <section id="future-balance">
-                    <h2>future.Balance</h2>
+                <section id="balance">
+                    <h2><span role="img" aria-label="bank">🏦</span> Balance</h2>
                     <p>View your current and projected balance.</p>
                     <table>
                         <thead>
@@ -299,7 +321,7 @@
                     </table>
                 </section>
                 <section id="deposit">
-                    <h2>Deposit</h2>
+                    <h2><span role="img" aria-label="plus">➕</span> Deposit</h2>
                     <p>Manage your deposits.</p>
                     <table>
                         <thead>
@@ -319,7 +341,7 @@
                     </table>
                 </section>
                 <section id="available-funded">
-                    <h2>Available Funded</h2>
+                    <h2><span role="img" aria-label="briefcase">💼</span> Available Funded</h2>
                     <p>View available funded accounts.</p>
                     <table>
                         <thead>
@@ -339,7 +361,7 @@
                     </table>
                 </section>
                 <section id="available-traders">
-                    <h2>Available Traders</h2>
+                    <h2><span role="img" aria-label="people">👥</span> Available Traders</h2>
                     <p>Find traders to collaborate with.</p>
                     <table>
                         <thead>
@@ -359,7 +381,7 @@
                     </table>
                 </section>
                 <section id="co-funding">
-                    <h2>Co-Funding</h2>
+                    <h2><span role="img" aria-label="handshake">🤝</span> Co-Funding</h2>
                     <p>Create a co-fund request by selecting an account. Your deposit will be locked in Escrow until matched. The system will match co-funders and auto-purchase the prop firm account upon agreement.</p>
                     <form id="coFundingForm">
                         <div class="form-group">
@@ -374,7 +396,7 @@
                     </form>
                 </section>
                 <section id="requests">
-                    <h2>Requests</h2>
+                    <h2><span role="img" aria-label="envelope">📩</span> Requests</h2>
                     <p>View and manage your requests.</p>
                     <table>
                         <thead>
@@ -396,7 +418,7 @@
                     </table>
                 </section>
                 <section id="active">
-                    <h2>Active</h2>
+                    <h2><span role="img" aria-label="chart">📊</span> Active</h2>
                     <p>View active collaborations.</p>
                     <table>
                         <thead>
@@ -415,8 +437,8 @@
                         </tbody>
                     </table>
                 </section>
-                <section id="order">
-                    <h2>Order</h2>
+                <section id="orders">
+                    <h2><span role="img" aria-label="document">📑</span> Orders</h2>
                     <p>Manage your orders.</p>
                     <table>
                         <thead>
@@ -436,7 +458,7 @@
                     </table>
                 </section>
                 <section id="completed">
-                    <h2>Completed</h2>
+                    <h2><span role="img" aria-label="check">✅</span> Completed</h2>
                     <p>View completed transactions.</p>
                     <table>
                         <thead>
@@ -456,7 +478,7 @@
                     </table>
                 </section>
                 <section id="profits-withdrawals">
-                    <h2>Profits & Withdrawals</h2>
+                    <h2><span role="img" aria-label="money">💵</span> Profits & Withdrawals</h2>
                     <p>Track your profits and withdrawals.</p>
                     <table>
                         <thead>
@@ -476,13 +498,12 @@
                     </table>
                 </section>
                 <section id="performance-chart">
-                    <h2>Performance Chart</h2>
+                    <h2><span role="img" aria-label="graph">📈</span> Performance Chart</h2>
                     <p>View your trading performance.</p>
-                    <!-- Placeholder for chart - implement with canvas or library like Chart.js -->
                     <div style="height: 300px; background: #eee; text-align: center; padding: 1rem;">Chart Placeholder</div>
                 </section>
-                <section id="message">
-                    <h2>Message</h2>
+                <section id="messages">
+                    <h2><span role="img" aria-label="speech">💬</span> Messages</h2>
                     <p>Send or view messages.</p>
                     <textarea rows="5" placeholder="Type your message..." style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 5px;"></textarea>
                     <button class="btn btn-primary" style="margin-top: 0.5rem;">Send</button>
@@ -490,12 +511,11 @@
             </main>
         </div>
     </div>
-
-   <footer>
+  <footer>
         <p>&copy; 2025 MarketFlow</p>
     </footer>
 
-  <script>
+   <script>
         let isLoggedIn = false;
 
         function updateUI() {
@@ -526,7 +546,7 @@
             updateUI();
         }
 
-       // Simulate initial login for testing
+        // Simulate initial login for testing
         window.onload = () => {
             login(); // Automatically log in to show dashboard
         };
