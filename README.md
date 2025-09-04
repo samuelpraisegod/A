@@ -16,7 +16,7 @@
             --shadow: rgba(0,0,0,0.1);
         }
 
- /* Global Styles */
+/* Global Styles */
         body {
             font-family: 'Segoe UI', sans-serif;
             background: var(--light-bg);
@@ -24,15 +24,15 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
-/* Header Styles */
+   /* Header Styles */
         header {
             background: #4a2626;
             color: var(--white);
             padding: 1rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 5px var(--shadow);
             position: sticky;
@@ -40,12 +40,18 @@
             z-index: 100;
         }
 
+  .hamburger {
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-right: 1rem;
+        }
+
  .header-title h1 {
             margin: 0;
             font-size: 1.5rem;
         }
 
-  nav ul {
+nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
@@ -53,7 +59,7 @@
             gap: 1rem;
         }
 
-nav ul li a {
+  nav ul li a {
             color: var(--white);
             text-decoration: none;
         }
@@ -64,52 +70,58 @@ nav ul li a {
             padding: 2rem;
         }
 
-.hero {
+ .hero {
             max-width: 600px;
             margin: 0 auto;
         }
 
-.hero h1 {
+  .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
 
- /* Dashboard Layout */
+  /* Dashboard Layout */
         .dashboard {
-            display: grid;
-            grid-template-columns: 1fr 250px;
+            display: flex;
             min-height: calc(100vh - 60px);
-            grid-template-areas: "main sidebar";
         }
 
- .main-content {
-            grid-area: main;
+  .main-content {
+            flex: 1;
             padding: 2rem;
+            transition: margin-left 0.3s;
         }
 
- .sidebar {
-            grid-area: sidebar;
+ /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
             background: var(--white);
             padding: 1rem;
-            position: sticky;
+            position: fixed;
             top: 60px;
+            left: -250px; /* Hidden by default */
             height: calc(100vh - 60px);
-            border-left: 1px solid #eee;
+            border-right: 1px solid #eee;
+            transition: left 0.3s;
+            z-index: 50;
         }
 
-.sidebar .brand {
+ .sidebar.active {
+            left: 0; /* Slide in when active */
+        }
+ .sidebar .brand {
             font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 1rem;
             text-align: center;
         }
 
-  .sidebar ul {
+ .sidebar ul {
             list-style: none;
             padding: 0;
         }
 
- .sidebar ul li a {
+  .sidebar ul li a {
             display: flex;
             align-items: center;
             padding: 0.5rem;
@@ -122,10 +134,26 @@ nav ul li a {
             border-radius: 5px;
         }
 
-.sidebar hr {
+ .sidebar hr {
             margin: 0.5rem 0;
             border: 0;
             border-top: 1px solid #eee;
+        }
+
+ /* Overlay for mobile view */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+        }
+
+ .overlay.active {
+            display: block;
         }
 
   /* Tabs and Forms */
@@ -135,7 +163,7 @@ nav ul li a {
             margin-bottom: 1rem;
         }
 
- .tab-btn {
+   .tab-btn {
             padding: 0.5rem 1rem;
             border: none;
             background: none;
@@ -143,7 +171,7 @@ nav ul li a {
             border-bottom: 2px solid transparent;
         }
 
-.tab-btn.active {
+  .tab-btn.active {
             border-bottom-color: var(--secondary);
             font-weight: bold;
         }
@@ -152,27 +180,27 @@ nav ul li a {
             display: none;
         }
 
- .tab-content.active {
+   .tab-content.active {
             display: block;
         }
 
- .form-group {
+  .form-group {
             margin-bottom: 1rem;
         }
 
- .form-group label {
+  .form-group label {
             display: block;
             margin-bottom: 0.25rem;
         }
 
- .form-group select {
+  .form-group select {
             width: 100%;
             padding: 0.5rem;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
 
- /* Tables */
+   /* Tables */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -186,7 +214,7 @@ nav ul li a {
             border-bottom: 1px solid #ccc;
         }
 
-   th {
+  th {
             background: var(--primary);
             color: var(--white);
         }
@@ -199,10 +227,10 @@ nav ul li a {
             font-size: 0.875rem;
         }
 
- .status-pending { background: #ffc107; }
+  .status-pending { background: #ffc107; }
         .status-active { background: #28a745; }
 
- /* Buttons */
+   /* Buttons */
         .btn {
             padding: 0.5rem 1rem;
             border: none;
@@ -211,12 +239,12 @@ nav ul li a {
             text-decoration: none;
         }
 
-  .btn-primary {
+   .btn-primary {
             background: var(--secondary);
             color: var(--primary);
         }
 
- .btn-success {
+  .btn-success {
             background: #28a745;
             color: var(--white);
         }
@@ -224,8 +252,7 @@ nav ul li a {
  .btn:hover {
             opacity: 0.9;
         }
-
-  /* Footer */
+     /* Footer */
         footer {
             text-align: center;
             padding: 1rem;
@@ -243,13 +270,14 @@ nav ul li a {
 
   /* Responsive Design */
         @media (max-width: 768px) {
-            .dashboard {
-                grid-template-columns: 1fr;
-                grid-template-areas: "main" "sidebar";
+            .main-content {
+                margin-left: 0;
             }
             .sidebar {
-                position: static;
-                height: auto;
+                left: -250px;
+            }
+            .sidebar.active {
+                left: 0;
             }
             .hero h1 {
                 font-size: 1.5rem;
@@ -259,6 +287,7 @@ nav ul li a {
 </head>
 <body>
     <header>
+        <div class="hamburger" onclick="toggleSidebar()">☰</div>
         <div class="header-title">
             <h1>MarketFlow</h1>
         </div>
@@ -268,6 +297,7 @@ nav ul li a {
             </ul>
         </nav>
     </header>
+
  <div id="home-content">
         <div class="hero">
             <h1>MarketFlow: Collaborative Trading</h1>
@@ -416,8 +446,8 @@ nav ul li a {
                         </tbody>
                     </table>
                 </section>
-                <section id="order">
-                    <h2>Order</h2>
+                <section id="orders">
+                    <h2>Orders</h2>
                     <p>Manage your orders.</p>
                     <table>
                         <thead>
@@ -451,7 +481,7 @@ nav ul li a {
                             <tr>
                                 <td>#COMP001</td>
                                 <td>$10,000</td>
-                                <td>2025-09-02</td>
+                                <td>2025-09-03</td>
                             </tr>
                         </tbody>
                     </table>
@@ -481,13 +511,14 @@ nav ul li a {
                     <p>View your trading performance.</p>
                     <div style="height: 300px; background: #eee; text-align: center; padding: 1rem;">Chart Placeholder</div>
                 </section>
-                <section id="message">
-                    <h2>Message</h2>
+                <section id="messages">
+                    <h2>Messages</h2>
                     <p>Send or view messages.</p>
                     <textarea rows="5" placeholder="Type your message..." style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 5px;"></textarea>
                     <button class="btn btn-primary" style="margin-top: 0.5rem;">Send</button>
                 </section>
             </main>
+            <div class="overlay" onclick="toggleSidebar()"></div>
             <nav class="sidebar">
                 <div class="brand">MarketFlow</div>
                 <ul>
@@ -497,31 +528,24 @@ nav ul li a {
                     <li><a href="#available-traders"><span role="img" aria-label="people">👥</span> Available Traders</a></li>
                     <li><a href="#co-funding"><span role="img" aria-label="handshake">🤝</span> Co-Funding</a></li>
                     <li><a href="#requests"><span role="img" aria-label="envelope">📩</span> Requests</a></li>
-                </ul>
-                <hr>
-                <ul>
                     <li><a href="#active"><span role="img" aria-label="chart">📊</span> Active</a></li>
-                    <li><a href="#order"><span role="img" aria-label="document">📑</span> Order</a></li>
+                    <li><a href="#orders"><span role="img" aria-label="document">📑</span> Orders</a></li>
                     <li><a href="#completed"><span role="img" aria-label="check">✅</span> Completed</a></li>
-                </ul>
-                <hr>
-                <ul>
                     <li><a href="#profits-withdrawals"><span role="img" aria-label="money">💵</span> Profits & Withdrawals</a></li>
                     <li><a href="#performance-chart"><span role="img" aria-label="graph">📈</span> Performance Chart</a></li>
-                </ul>
-                <hr>
-                <ul>
-                    <li><a href="#message"><span role="img" aria-label="speech">💬</span> Message</a></li>
+                    <li><a href="#messages"><span role="img" aria-label="speech">💬</span> Messages</a></li>
                 </ul>
             </nav>
         </div>
     </div>
- <footer>
+
+  <footer>
         <p>&copy; 2025 MarketFlow</p>
     </footer>
 
- <script>
+  <script>
         let isLoggedIn = false;
+        let sidebarActive = false;
 
         function updateUI() {
             const homeContent = document.getElementById('home-content');
@@ -538,6 +562,22 @@ nav ul li a {
                 dashboardContent.classList.add('hidden');
                 authBtn.textContent = 'Login';
                 authBtn.onclick = login;
+            }
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.overlay');
+            sidebarActive = !sidebarActive;
+
+            if (sidebarActive) {
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                document.querySelector('.main-content').style.marginLeft = '250px';
+            } else {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.querySelector('.main-content').style.marginLeft = '0';
             }
         }
 
