@@ -27,7 +27,7 @@
             overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
-   /* Header Styles */
+  /* Header Styles */
         header {
             background: #4a2626;
             color: var(--white);
@@ -44,6 +44,49 @@
             font-size: 1.5rem;
             cursor: pointer;
             margin-right: 1rem;
+            position: relative;
+        }
+
+  .hamburger-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 250px;
+            background: var(--white);
+            padding: 1rem;
+            border-right: 1px solid #eee;
+            box-shadow: 2px 2px 5px var(--shadow);
+            z-index: 60;
+        }
+
+ .hamburger.active .hamburger-menu {
+            display: block;
+        }
+
+ .hamburger .brand {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+ .hamburger-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+ .hamburger-menu ul li a {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+ .hamburger-menu ul li a:hover {
+            background: var(--light-bg);
+            border-radius: 5px;
         }
 
  .header-title h1 {
@@ -51,7 +94,7 @@
             font-size: 1.5rem;
         }
 
-nav ul {
+  nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
@@ -64,18 +107,18 @@ nav ul {
             text-decoration: none;
         }
 
- /* Home Content */
+  /* Home Content */
         #home-content {
             text-align: center;
             padding: 2rem;
         }
 
- .hero {
+  .hero {
             max-width: 600px;
             margin: 0 auto;
         }
 
-  .hero h1 {
+ .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
@@ -89,71 +132,6 @@ nav ul {
   .main-content {
             flex: 1;
             padding: 2rem;
-            transition: margin-left 0.3s;
-        }
-
- /* Sidebar Styles */
-        .sidebar {
-            width: 250px;
-            background: var(--white);
-            padding: 1rem;
-            position: fixed;
-            top: 60px;
-            left: -250px; /* Hidden by default */
-            height: calc(100vh - 60px);
-            border-right: 1px solid #eee;
-            transition: left 0.3s;
-            z-index: 50;
-        }
-
- .sidebar.active {
-            left: 0; /* Slide in when active */
-        }
- .sidebar .brand {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
- .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-
-  .sidebar ul li a {
-            display: flex;
-            align-items: center;
-            padding: 0.5rem;
-            color: var(--text);
-            text-decoration: none;
-        }
-
- .sidebar ul li a:hover {
-            background: var(--light-bg);
-            border-radius: 5px;
-        }
-
- .sidebar hr {
-            margin: 0.5rem 0;
-            border: 0;
-            border-top: 1px solid #eee;
-        }
-
- /* Overlay for mobile view */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 40;
-        }
-
- .overlay.active {
-            display: block;
         }
 
   /* Tabs and Forms */
@@ -163,7 +141,7 @@ nav ul {
             margin-bottom: 1rem;
         }
 
-   .tab-btn {
+ .tab-btn {
             padding: 0.5rem 1rem;
             border: none;
             background: none;
@@ -176,19 +154,19 @@ nav ul {
             font-weight: bold;
         }
 
- .tab-content {
+  .tab-content {
             display: none;
         }
 
-   .tab-content.active {
+  .tab-content.active {
             display: block;
         }
 
-  .form-group {
+   .form-group {
             margin-bottom: 1rem;
         }
 
-  .form-group label {
+ .form-group label {
             display: block;
             margin-bottom: 0.25rem;
         }
@@ -200,7 +178,7 @@ nav ul {
             border-radius: 5px;
         }
 
-   /* Tables */
+  /* Tables */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -208,13 +186,13 @@ nav ul {
             box-shadow: 0 2px 5px var(--shadow);
         }
 
-  th, td {
+   th, td {
             padding: 0.5rem;
             text-align: left;
             border-bottom: 1px solid #ccc;
         }
 
-  th {
+   th {
             background: var(--primary);
             color: var(--white);
         }
@@ -227,10 +205,10 @@ nav ul {
             font-size: 0.875rem;
         }
 
-  .status-pending { background: #ffc107; }
+   .status-pending { background: #ffc107; }
         .status-active { background: #28a745; }
 
-   /* Buttons */
+  /* Buttons */
         .btn {
             padding: 0.5rem 1rem;
             border: none;
@@ -239,7 +217,7 @@ nav ul {
             text-decoration: none;
         }
 
-   .btn-primary {
+ .btn-primary {
             background: var(--secondary);
             color: var(--primary);
         }
@@ -249,10 +227,11 @@ nav ul {
             color: var(--white);
         }
 
- .btn:hover {
+  .btn:hover {
             opacity: 0.9;
         }
-     /* Footer */
+
+   /* Footer */
         footer {
             text-align: center;
             padding: 1rem;
@@ -263,31 +242,44 @@ nav ul {
             width: 100%;
         }
 
-  /* Utility Classes */
+   /* Utility Classes */
         .hidden {
             display: none;
         }
 
   /* Responsive Design */
         @media (max-width: 768px) {
-            .main-content {
-                margin-left: 0;
-            }
-            .sidebar {
-                left: -250px;
-            }
-            .sidebar.active {
-                left: 0;
-            }
             .hero h1 {
                 font-size: 1.5rem;
+            }
+            .hamburger-menu {
+                left: -10px; /* Adjust for mobile alignment */
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="hamburger" onclick="toggleSidebar()">☰</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            ☰
+            <div class="hamburger-menu">
+                <div class="brand">MarketFlow</div>
+                <ul>
+                    <li><a href="#balance"><span role="img" aria-label="bank">🏦</span> Balance</a></li>
+                    <li><a href="#deposit"><span role="img" aria-label="plus">➕</span> Deposit</a></li>
+                    <li><a href="#available-funded"><span role="img" aria-label="briefcase">💼</span> Available Funded</a></li>
+                    <li><a href="#available-traders"><span role="img" aria-label="people">👥</span> Available Traders</a></li>
+                    <li><a href="#co-funding"><span role="img" aria-label="handshake">🤝</span> Co-Funding</a></li>
+                    <li><a href="#requests"><span role="img" aria-label="envelope">📩</span> Requests</a></li>
+                    <li><a href="#active"><span role="img" aria-label="chart">📊</span> Active</a></li>
+                    <li><a href="#orders"><span role="img" aria-label="document">📑</span> Orders</a></li>
+                    <li><a href="#completed"><span role="img" aria-label="check">✅</span> Completed</a></li>
+                    <li><a href="#profits-withdrawals"><span role="img" aria-label="money">💵</span> Profits & Withdrawals</a></li>
+                    <li><a href="#performance-chart"><span role="img" aria-label="graph">📈</span> Performance Chart</a></li>
+                    <li><a href="#messages"><span role="img" aria-label="speech">💬</span> Messages</a></li>
+                </ul>
+            </div>
+        </div>
         <div class="header-title">
             <h1>MarketFlow</h1>
         </div>
@@ -306,7 +298,7 @@ nav ul {
         </div>
     </div>
 
-  <div id="dashboard-content" class="hidden">
+ <div id="dashboard-content" class="hidden">
         <div class="dashboard">
             <main class="main-content">
                 <section id="balance">
@@ -518,34 +510,15 @@ nav ul {
                     <button class="btn btn-primary" style="margin-top: 0.5rem;">Send</button>
                 </section>
             </main>
-            <div class="overlay" onclick="toggleSidebar()"></div>
-            <nav class="sidebar">
-                <div class="brand">MarketFlow</div>
-                <ul>
-                    <li><a href="#balance"><span role="img" aria-label="bank">🏦</span> Balance</a></li>
-                    <li><a href="#deposit"><span role="img" aria-label="plus">➕</span> Deposit</a></li>
-                    <li><a href="#available-funded"><span role="img" aria-label="briefcase">💼</span> Available Funded</a></li>
-                    <li><a href="#available-traders"><span role="img" aria-label="people">👥</span> Available Traders</a></li>
-                    <li><a href="#co-funding"><span role="img" aria-label="handshake">🤝</span> Co-Funding</a></li>
-                    <li><a href="#requests"><span role="img" aria-label="envelope">📩</span> Requests</a></li>
-                    <li><a href="#active"><span role="img" aria-label="chart">📊</span> Active</a></li>
-                    <li><a href="#orders"><span role="img" aria-label="document">📑</span> Orders</a></li>
-                    <li><a href="#completed"><span role="img" aria-label="check">✅</span> Completed</a></li>
-                    <li><a href="#profits-withdrawals"><span role="img" aria-label="money">💵</span> Profits & Withdrawals</a></li>
-                    <li><a href="#performance-chart"><span role="img" aria-label="graph">📈</span> Performance Chart</a></li>
-                    <li><a href="#messages"><span role="img" aria-label="speech">💬</span> Messages</a></li>
-                </ul>
-            </nav>
         </div>
     </div>
 
-  <footer>
+<footer>
         <p>&copy; 2025 MarketFlow</p>
     </footer>
 
   <script>
         let isLoggedIn = false;
-        let sidebarActive = false;
 
         function updateUI() {
             const homeContent = document.getElementById('home-content');
@@ -565,20 +538,9 @@ nav ul {
             }
         }
 
-        function toggleSidebar() {
-            const sidebar = document.querySelector('.sidebar');
-            const overlay = document.querySelector('.overlay');
-            sidebarActive = !sidebarActive;
-
-            if (sidebarActive) {
-                sidebar.classList.add('active');
-                overlay.classList.add('active');
-                document.querySelector('.main-content').style.marginLeft = '250px';
-            } else {
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-                document.querySelector('.main-content').style.marginLeft = '0';
-            }
+        function toggleMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            hamburger.classList.toggle('active');
         }
 
         function login() {
